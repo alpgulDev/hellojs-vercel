@@ -63,8 +63,8 @@ export async function POST(input: Request) {
   }
 
   try {
-    const selectedProfile = request.profiles.get(body.profile || 'chrome147') as { tls?: Record<string, unknown> } | undefined
-    const runtimeProfileName = `runtime-tls12-${body.profile || 'chrome147'}`
+    const selectedProfile = request.profiles.get(body.profile || 'chrome147-mac') as { tls?: Record<string, unknown> } | undefined
+    const runtimeProfileName = `runtime-tls12-${body.profile || 'chrome147-mac'}`
     if (selectedProfile) {
       request.profiles.register(runtimeProfileName, {
         ...selectedProfile,
@@ -85,7 +85,7 @@ export async function POST(input: Request) {
 
     const response = await request({
       url: target,
-      profile: selectedProfile ? runtimeProfileName : body.profile || 'chrome147',
+      profile: selectedProfile ? runtimeProfileName : body.profile || 'chrome147-mac',
       h3: body.h3 === true,
       timeout: 60_000,
       simple: false,
