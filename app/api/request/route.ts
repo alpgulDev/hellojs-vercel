@@ -79,6 +79,9 @@ export async function POST(input: Request) {
           keyShareGroups: Array.isArray(selectedProfile.tls?.keyShareGroups)
             ? selectedProfile.tls.keyShareGroups.filter((group) => group !== 4588)
             : selectedProfile.tls?.keyShareGroups,
+          extensionOrder: Array.isArray(selectedProfile.tls?.extensionOrder)
+            ? selectedProfile.tls.extensionOrder.filter((extension) => extension?.id !== 51)
+            : selectedProfile.tls?.extensionOrder,
         },
       })
     }
