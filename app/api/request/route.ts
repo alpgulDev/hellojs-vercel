@@ -1,4 +1,7 @@
 import request from '@unreleased/hellojs'
+import roots from './root-certificates'
+
+request.setTrustedRoots(roots)
 
 export const runtime = 'nodejs'
 export const maxDuration = 60
