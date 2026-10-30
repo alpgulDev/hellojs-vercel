@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'Request Lab | hellojs transport console',
+  description: 'Send and inspect HTTP requests through the hellojs Node.js transport library.',
   generator: 'v0.app',
   icons: {
     icon: [
