@@ -3,8 +3,8 @@ import dgram from "node:dgram"
 export const runtime = "nodejs"
 
 export async function GET() {
-  const host = process.env.UDP_SERVER_HOST
-  const port = Number(process.env.UDP_SERVER_PORT ?? "12345")
+  const host = process.env.UDP_SERVER_HOST ?? "172.253.115.127"
+  const port = Number(process.env.UDP_SERVER_PORT ?? "19302")
 
   if (!host || !Number.isInteger(port) || port < 1 || port > 65535) {
     return Response.json(
@@ -26,8 +26,11 @@ export async function GET() {
     }
 
     socket.once("error", (error) => finish({ ok: false, error: error.message }))
-    socket.once("message", (message) => finish({ ok: true, reply: message.toString() }))
-    socket.send("vercel-udp-test", port, host, (error) => {
+    socket.once("message", (message, address) =>
+      finish({ ok: true, reply: `Received ${message.length} bytes from ${address.address}:${address.port}` }),
+    )
+    const stunBindingRequest = Buffer.from("000100002112a4420000000000000000", "hex")
+    socket.send(stunBindingRequest, port, host, (error) => {
       if (error) finish({ ok: false, error: error.message })
     })
   })
