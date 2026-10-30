@@ -23,7 +23,7 @@ const initialResult: RequestResult = {
   body: { message: 'Configure a request and press Send request.' },
 }
 
-export function RequestConsole() {
+export function RequestConsole({ nodeVersion }: { nodeVersion: string }) {
   const [url, setUrl] = useState('https://httpbingo.org/get')
   const [profile, setProfile] = useState('chrome147-mac')
   const [http3, setHttp3] = useState(false)
@@ -60,7 +60,7 @@ export function RequestConsole() {
             <div className="flex size-9 items-center justify-center rounded-xl bg-[#101828] text-white"><Network size={18} /></div>
             <div><p className="text-[15px] font-semibold tracking-[-0.02em]">Request Lab</p><p className="text-[11px] text-[#667085]">hellojs transport console</p></div>
           </div>
-          <div className="hidden items-center gap-2 rounded-full border border-[#d1fadf] bg-[#ecfdf3] px-3 py-1.5 text-xs font-medium text-[#027a48] sm:flex"><span className="size-1.5 rounded-full bg-[#12b76a]" /> Node.js runtime online</div>
+          <div className="hidden items-center gap-2 rounded-full border border-[#d1fadf] bg-[#ecfdf3] px-3 py-1.5 text-xs font-medium text-[#027a48] sm:flex"><span className="size-1.5 rounded-full bg-[#12b76a]" /> Node.js {nodeVersion}</div>
         </div>
       </header>
 
