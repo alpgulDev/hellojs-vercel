@@ -25,7 +25,7 @@ const initialResult: RequestResult = {
 
 export function RequestConsole() {
   const [url, setUrl] = useState('https://httpbingo.org/get')
-  const [profile, setProfile] = useState('chrome147')
+  const [profile, setProfile] = useState('chrome147-mac')
   const [http3, setHttp3] = useState(false)
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState<RequestResult>(initialResult)

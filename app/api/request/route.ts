@@ -63,8 +63,9 @@ export async function POST(input: Request) {
   }
 
   try {
-    const selectedProfile = request.profiles.get(body.profile || 'chrome147-mac') as { tls?: Record<string, unknown> } | undefined
-    const runtimeProfileName = `runtime-tls12-${body.profile || 'chrome147-mac'}`
+    const requestedProfile = body.profile === 'firefox147' ? 'firefox147' : 'chrome147-mac'
+    const selectedProfile = request.profiles.get(requestedProfile) as { tls?: Record<string, unknown> } | undefined
+    const runtimeProfileName = `runtime-tls12-${requestedProfile}`
     if (selectedProfile) {
       request.profiles.register(runtimeProfileName, {
         ...selectedProfile,
