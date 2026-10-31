@@ -13,7 +13,7 @@ importers:
         version: 1.5.0(@date-fns/tz@1.4.1)(@types/react@19.2.14)(date-fns@4.1.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@unreleased/hellojs':
         specifier: github:alpgul/hellojs-worker#worker
-        version: https://codeload.github.com/alpgul/hellojs-worker/tar.gz/85e0866fa15117e47d3a96e21f8ee1b25d08b3a3
+        version: https://codeload.github.com/alpgul/hellojs-worker/tar.gz/f29b3ba60609ded025cf897f2328be53a6020303
       '@vercel/analytics':
         specifier: 1.6.1
         version: 1.6.1(next@16.4.3(@babel/core@7.29.7)(@types/node@24.10.4)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)
@@ -656,9 +656,9 @@ packages:
   '@types/validate-npm-package-name@4.0.2':
     resolution: {integrity: sha512-lrpDziQipxCEeK5kWxvljWYhUvOiB2A9izZd9B2AFarYAkqZshb4lPbRs7zKEic6eGtH8V/2qJW+dPp9OtF6bw==}
 
-  '@unreleased/hellojs@https://codeload.github.com/alpgul/hellojs-worker/tar.gz/85e0866fa15117e47d3a96e21f8ee1b25d08b3a3':
-    resolution: {gitHosted: true, integrity: sha512-xJun/VpfTRNLzJtXzxIFU+AfA2RFSYIrlDuuJQTZHGBvq1qGipqUtlYblWEBHHe7G6Msh7Bu6I+xqWqquCf4QQ==, tarball: https://codeload.github.com/alpgul/hellojs-worker/tar.gz/85e0866fa15117e47d3a96e21f8ee1b25d08b3a3}
-    version: 0.2.5
+  '@unreleased/hellojs@https://codeload.github.com/alpgul/hellojs-worker/tar.gz/f29b3ba60609ded025cf897f2328be53a6020303':
+    resolution: {gitHosted: true, integrity: sha512-5nCUhIqVNCdmhJ3dWm6wYB7ANzwl9/mulcreiJWY6KblcP0zCqu9rgno5n6h6ph4EkitaU6JC2I7dpkrJih2Xw==, tarball: https://codeload.github.com/alpgul/hellojs-worker/tar.gz/f29b3ba60609ded025cf897f2328be53a6020303}
+    version: 0.3.0
     engines: {node: '>=24.21.0'}
 
   '@vercel/analytics@1.6.1':
@@ -2420,7 +2420,7 @@ snapshots:
 
   '@types/validate-npm-package-name@4.0.2': {}
 
-  '@unreleased/hellojs@https://codeload.github.com/alpgul/hellojs-worker/tar.gz/85e0866fa15117e47d3a96e21f8ee1b25d08b3a3': {}
+  '@unreleased/hellojs@https://codeload.github.com/alpgul/hellojs-worker/tar.gz/f29b3ba60609ded025cf897f2328be53a6020303': {}
 
   '@vercel/analytics@1.6.1(next@16.4.3(@babel/core@7.29.7)(@types/node@24.10.4)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)':
     optionalDependencies:
