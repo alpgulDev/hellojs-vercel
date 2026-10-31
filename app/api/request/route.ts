@@ -123,19 +123,7 @@ export async function POST(input: Request) {
     // while still using hellojs whenever its selected transport is available.
     if (message.includes('ML-KEM')) {
       try {
-        const fallback = await fetch(target, { redirect: 'follow', signal: AbortSignal.timeout(60_000) })
-        const text = await fallback.text()
-        let parsedBody: unknown = text
-        try { parsedBody = JSON.parse(text) } catch {}
-        return Response.json({
-          ok: fallback.ok,
-          status: fallback.status,
-          statusText: fallback.ok ? 'Request completed (runtime fallback)' : 'Request returned an error status',
-          headers: Object.fromEntries(fallback.headers.entries()),
-          body: parsedBody,
-          durationMs: Math.round(performance.now() - startedAt),
-          protocol: 'Platform fetch fallback',
-        })
+        return await platformFetch(target, startedAt)
       } catch (fallbackError) {
         return Response.json({
           ok: false,
