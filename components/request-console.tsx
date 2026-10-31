@@ -1,7 +1,7 @@
 'use client'
 
 import { FormEvent, useState } from 'react'
-import { Check, ChevronDown, Clock3, Globe2, Loader2, Network, Send, ShieldCheck, Terminal, X } from 'lucide-react'
+import { Check, ChevronDown, Clock3, Globe2, Loader2, Network, Send, ShieldCheck, Terminal } from 'lucide-react'
 
 type RequestResult = {
   ok: boolean
