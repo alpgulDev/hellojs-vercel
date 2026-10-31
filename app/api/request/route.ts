@@ -66,33 +66,11 @@ export async function POST(input: Request) {
   }
 
   try {
-    const requestedProfile = body.profile === 'firefox147' ? 'firefox147' : 'chrome147-mac'
-    const selectedProfile = request.profiles.get(requestedProfile) as { tls?: Record<string, unknown> } | undefined
-    const runtimeProfileName = `runtime-tls12-${requestedProfile}`
-    if (selectedProfile) {
-      request.profiles.register(runtimeProfileName, {
-        ...selectedProfile,
-        tls: {
-          ...selectedProfile.tls,
-          // The Vercel Node runtime may not expose ML-KEM Web Crypto yet.
-          // Keep the selected browser headers while negotiating TLS 1.2 safely.
-          supportedVersions: [0x0303],
-          supportedGroups: Array.isArray(selectedProfile.tls?.supportedGroups)
-            ? selectedProfile.tls.supportedGroups.filter((group) => group !== 4588)
-            : selectedProfile.tls?.supportedGroups,
-          keyShareGroups: Array.isArray(selectedProfile.tls?.keyShareGroups)
-            ? selectedProfile.tls.keyShareGroups.filter((group) => group !== 4588)
-            : selectedProfile.tls?.keyShareGroups,
-          extensionOrder: Array.isArray(selectedProfile.tls?.extensionOrder)
-            ? selectedProfile.tls.extensionOrder.filter((extension) => extension?.id !== 51)
-            : selectedProfile.tls?.extensionOrder,
-        },
-      })
-    }
+    const requestedProfile = body.profile === 'firefox147' ? 'firefox147' : 'chrome147-mac';
 
     const response = await request({
       url: target,
-      profile: selectedProfile ? runtimeProfileName : body.profile || 'chrome147-mac',
+      profile: requestedProfile,
       h3: body.h3 === true,
       timeout: 60_000,
       simple: false,
